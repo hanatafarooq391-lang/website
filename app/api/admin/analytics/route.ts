@@ -25,7 +25,7 @@ export async function GET(req: NextRequest) {
     const avgOrderValue   = confirmed.length ? totalRevenue / confirmed.length : 0
 
     // Unique customers
-    const allEmails      = [...new Set(orders?.map(o => o.customer_email) ?? [])]
+    const allEmails      = Array.from(new Set(orders?.map(o => o.customer_email) ?? []))
     const firstOrders    = orders?.filter(o => o.is_first_order) ?? []
     const returningEmails = allEmails.filter(email => {
       const emailOrders = orders?.filter(o => o.customer_email === email) ?? []

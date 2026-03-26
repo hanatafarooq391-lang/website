@@ -12,7 +12,7 @@ export async function GET() {
     if (error) {
       // fallback — table might not exist yet
       const { data: products } = await sb.from('products').select('collection,gender').eq('status','active')
-      const cols = [...new Set((products??[]).map((p:any)=>p.collection).filter(Boolean))].sort()
+      const cols = Array.from(new Set((products??[]).map((p:any)=>p.collection).filter(Boolean))).sort()
       return NextResponse.json({ data: cols.map((c,i)=>({ id:c, name:c, slug:c, type:'custom', active:true, sort_order:i })) })
     }
     return NextResponse.json({ data: data ?? [] })
