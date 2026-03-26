@@ -13,7 +13,7 @@ export default async function AdminAnalyticsPage() {
   const avgUSD     = confirmed.length ? totalUSD/confirmed.length : 0
   const avgPKR     = toPKR(avgUSD)
 
-  const allEmails  = [...new Set((orders??[]).map((o:any)=>o.customer_email))]
+  const allEmails  = Array.from(new Set((orders??[]).map((o:any)=>o.customer_email)))
   const firstTimers= (orders??[]).filter((o:any)=>o.is_first_order).length
   const returning  = allEmails.filter(e=>(orders??[]).filter((o:any)=>o.customer_email===e).length>1)
   const vips       = returning.filter(e=>(orders??[]).filter((o:any)=>o.customer_email===e).length>=5)
