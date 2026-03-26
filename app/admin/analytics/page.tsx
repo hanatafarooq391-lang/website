@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import { createAdminSupabase } from '@/lib/supabase/server'
 import AdminShell from '@/components/admin/AdminShell'
 import { toPKR } from '@/lib/currency'
