@@ -44,9 +44,9 @@ export default function ProductCard({ product }: { product: Product }) {
   }
 
   return (
-    <Link href={`/product/${product.slug}`} style={{ textDecoration:'none', display:'block' }}
-      className="product-card"
-      style2={{ border:'1px solid #e8e0d4', background:'white', overflow:'hidden', borderRadius:2 }}>
+    <Link href={`/product/${product.slug}`}
+      style={{ textDecoration:'none', display:'block', border:'1px solid #e8e0d4', background:'white', overflow:'hidden', borderRadius:2 }}
+      className="product-card">
 
       {/* Image */}
       <div style={{ height:240, background:product.bg_color??'#f5f0e8', position:'relative', overflow:'hidden', display:'flex', alignItems:'center', justifyContent:'center' }}>
